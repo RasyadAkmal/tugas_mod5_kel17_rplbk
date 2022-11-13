@@ -36,6 +36,16 @@ export default class Home extends React.Component {
                   onClick={() => this.deleteHandlerUser(person.id)}
                 >
                   Delete
+deleteHandlerUser = (props) => {
+    axios
+      .delete(`https://jsonplaceholder.typicode.com/users/` + props)
+      .then((res) => {
+        let arr = this.state.persons;
+        var idx = props - 1;
+        arr.splice(idx, 1);
+        this.setState([...arr]);
+      });
+  };
                 </button>
               </div>
             </div>
