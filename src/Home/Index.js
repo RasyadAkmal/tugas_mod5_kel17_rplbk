@@ -16,7 +16,7 @@ export default class Home extends React.Component {
     });
   }
 
-  //Bagian Function Delete
+  //Bagian Function Delete Handler
 
   render() {
     return (
