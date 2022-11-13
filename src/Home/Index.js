@@ -3,10 +3,13 @@ import React from "react";
 import axios from "axios";
 
 export default class Home extends React.Component {
+  
+  //ini adalah initial state untuk persons yang nantinya digunakan untuk menyimpan data dari API
   state = {
     persons: [],
   };
-
+  
+  //fungsi di bawah ini yaitu berguna untuk mounting yang ada di dalamnya yaitu get API dan menyimpan di state persons, yang mana fungsi ini akan langsung dijalankan saat class component ini dipanggil
   componentDidMount() {
     axios.get(`https://jsonplaceholder.typicode.com/users`).then((res) => {
       const persons = res.data;
@@ -16,6 +19,7 @@ export default class Home extends React.Component {
     });
   }
   
+  //fungsi di bawah ini berguna untuk delete data dari API dan hasil penghapusannya disimpan di state persons
 deleteHandlerUser = (props) => {
     axios
       .delete(`https://jsonplaceholder.typicode.com/users/` + props)
